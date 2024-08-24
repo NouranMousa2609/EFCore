@@ -24,7 +24,7 @@ namespace Demo.Contexts
 
 
 
-       // public DbSet<Employee> Employees { get; set; }
+        public DbSet<Employee> Employees { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
