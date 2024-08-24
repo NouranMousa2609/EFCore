@@ -1,4 +1,6 @@
-﻿using CommonEntities;
+﻿
+
+using Demo.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -15,7 +17,7 @@ namespace Demo.Configurations
         public void Configure(EntityTypeBuilder<Department> E)
         {
             
-                E.ToTable("Department", "dbo").HasKey(D => D.Id);
+                E.ToTable("Departments", "dbo").HasKey(D => D.Id);
                 E.Property(D => D.Id).UseIdentityColumn(10, 10);
 
                 E.Property(D => D.Name)

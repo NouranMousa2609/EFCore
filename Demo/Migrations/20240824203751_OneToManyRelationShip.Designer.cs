@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Demo.Migrations
 {
     [DbContext(typeof(CompanyDbContext))]
-    [Migration("20240824115434_FluentAPIs")]
-    partial class FluentAPIs
+    [Migration("20240824203751_OneToManyRelationShip")]
+    partial class OneToManyRelationShip
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace Demo.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CommonEntities.Department", b =>
+            modelBuilder.Entity("Demo.Entities.Department", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -49,7 +49,7 @@ namespace Demo.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Department", "dbo");
+                    b.ToTable("Departments", "dbo");
                 });
 
             modelBuilder.Entity("Demo.Entities.Employee", b =>
@@ -67,6 +67,9 @@ namespace Demo.Migrations
                         .HasDefaultValue("Cairo");
 
                     b.Property<int?>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DepartmentId")
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
@@ -88,7 +91,21 @@ namespace Demo.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Employee");
+                    b.HasIndex("DepartmentId");
+
+                    b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("Demo.Entities.Employee", b =>
+                {
+                    b.HasOne("Demo.Entities.Department", null)
+                        .WithMany("Employees")
+                        .HasForeignKey("DepartmentId");
+                });
+
+            modelBuilder.Entity("Demo.Entities.Department", b =>
+                {
+                    b.Navigation("Employees");
                 });
 #pragma warning restore 612, 618
         }

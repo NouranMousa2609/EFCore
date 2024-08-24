@@ -43,6 +43,9 @@ namespace Demo.Entities
 
         public string? Name { get; set; }
 
+        
+
+        #region Other Properties
         [DataType(DataType.Currency)]
         [Column(TypeName = "money")]
         public double Salary { get; set; }
@@ -59,7 +62,12 @@ namespace Demo.Entities
 
         [DataType(DataType.Password)]
         public string? Password { get; set; }
+        #endregion
 
+        public int? DepartmentId { get; set; } //Forign key
+
+        //Navigational property [one]
+        public Department? Department { get; set; } = null!;
     }
 
 

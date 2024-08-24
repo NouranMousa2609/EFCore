@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Demo.Migrations
 {
     /// <inheritdoc />
-    public partial class FluentAPIs : Migration
+    public partial class IntialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,7 +15,7 @@ namespace Demo.Migrations
                 name: "dbo");
 
             migrationBuilder.CreateTable(
-                name: "Department",
+                name: "Departments",
                 schema: "dbo",
                 columns: table => new
                 {
@@ -27,11 +27,11 @@ namespace Demo.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Department", x => x.Id);
+                    table.PrimaryKey("PK_Departments", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Employee",
+                name: "Employees",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -46,7 +46,7 @@ namespace Demo.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Employee", x => x.Id);
+                    table.PrimaryKey("PK_Employees", x => x.Id);
                 });
         }
 
@@ -54,11 +54,11 @@ namespace Demo.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Department",
+                name: "Departments",
                 schema: "dbo");
 
             migrationBuilder.DropTable(
-                name: "Employee");
+                name: "Employees");
         }
     }
 }
