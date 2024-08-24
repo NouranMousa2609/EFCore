@@ -95,9 +95,11 @@ namespace Demo.Migrations
 
             modelBuilder.Entity("Demo.Entities.Employee", b =>
                 {
-                    b.HasOne("Demo.Entities.Department", null)
+                    b.HasOne("Demo.Entities.Department", "Department")
                         .WithMany("Employees")
                         .HasForeignKey("DepartmentId");
+
+                    b.Navigation("Department");
                 });
 
             modelBuilder.Entity("Demo.Entities.Department", b =>

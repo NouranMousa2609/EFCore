@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Demo.Migrations
 {
     [DbContext(typeof(CompanyDbContext))]
-    [Migration("20240824203751_OneToManyRelationShip")]
+    [Migration("20240824214300_OneToManyRelationShip")]
     partial class OneToManyRelationShip
     {
         /// <inheritdoc />
@@ -98,9 +98,11 @@ namespace Demo.Migrations
 
             modelBuilder.Entity("Demo.Entities.Employee", b =>
                 {
-                    b.HasOne("Demo.Entities.Department", null)
+                    b.HasOne("Demo.Entities.Department", "Department")
                         .WithMany("Employees")
                         .HasForeignKey("DepartmentId");
+
+                    b.Navigation("Department");
                 });
 
             modelBuilder.Entity("Demo.Entities.Department", b =>

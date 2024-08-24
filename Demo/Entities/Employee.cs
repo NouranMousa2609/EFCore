@@ -64,9 +64,11 @@ namespace Demo.Entities
         public string? Password { get; set; }
         #endregion
 
-        public int? DepartmentId { get; set; } //Forign key
+        //public int? DepartmentId { get; set; } //Forign key
 
         //Navigational property [one]
+        //[ForeignKey("DepartmentId")]
+        //[InverseProperty(nameof(Entities.Department.Employees))]
         public Department? Department { get; set; } = null!;
     }
 

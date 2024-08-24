@@ -20,6 +20,11 @@ namespace Demo.Configurations
                  .IsRequired(true)
                  .HasDefaultValue("Cairo");
 
+            builder
+             .HasOne(E => E.Department)
+             .WithMany(D => D.Employees)
+             .HasForeignKey("DepartmentId")
+             .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

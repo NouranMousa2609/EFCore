@@ -34,10 +34,14 @@ namespace Demo.Configurations
 
                 E.Property(D => D.CreationDate)
                    .HasComputedColumnSql("GETDATE()");
-                //.HasDefaultValue(DateOnly.FromDateTime(DateTime.Now));
-                //.HasColumnType("date")
+            //.HasDefaultValue(DateOnly.FromDateTime(DateTime.Now));
+            //.HasColumnType("date")
 
-          
+            E.HasMany(D => D.Employees)
+                 .WithOne(E => E.Department)
+                 .HasForeignKey("DepartmentId")
+                 .IsRequired(false)
+                 .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

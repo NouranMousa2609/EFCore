@@ -6,7 +6,6 @@ using System.Reflection;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
-
 using Demo.Configurations;
 using Demo.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -33,7 +32,11 @@ namespace Demo.Contexts
            //modelBuilder.ApplyConfiguration<Department>(new DepartmentConfiguration());
 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            
+
+           
+
+          
+
         }
 
         //public DbSet<Department> Departments { get; set; }
