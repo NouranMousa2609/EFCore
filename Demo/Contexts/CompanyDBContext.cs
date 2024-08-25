@@ -25,6 +25,7 @@ namespace Demo.Contexts
 
 
         public DbSet<Employee> Employees { get; set; }
+      
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -33,11 +34,26 @@ namespace Demo.Contexts
 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
+
+            //modelBuilder.Entity<Student>()
+            //    .HasMany(S => S.Courses)
+            //    .WithMany(C => C.Students);
+
+            //modelBuilder.Entity<Course>()
+            //    .HasMany(C => C.Students)
+            //    .WithMany(S => S.Courses);
+
            
 
-          
+            
+
+
+
 
         }
+
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Course> Course { get; set; }
 
         //public DbSet<Department> Departments { get; set; }
 
