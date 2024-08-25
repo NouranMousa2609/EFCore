@@ -31,7 +31,13 @@ namespace Assignment.Configuritions
 
             
             builder.Property(e => e.Duration)
-                .IsRequired(); 
+                .IsRequired();
+
+            builder
+                .HasMany(c => c.CourseStudent)
+                .WithOne(/*SC=>SC.Course*/)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
         }
             
         

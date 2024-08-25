@@ -25,6 +25,8 @@ namespace Assignment.Configuritions
             builder.Property(e => e.Name)
                 .IsRequired()
                 .HasMaxLength(50);
+
+           
         }
     }
 }

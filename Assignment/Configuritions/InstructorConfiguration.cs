@@ -37,7 +37,10 @@ namespace Assignment.Configuritions
 
             builder.Property(e => e.HourRate)
                 .HasColumnType("decimal(18,2)");
-                 
+
+
+
+           
         }
 
         }

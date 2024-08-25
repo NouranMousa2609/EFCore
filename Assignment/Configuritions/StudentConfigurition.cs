@@ -34,7 +34,13 @@ namespace Assignment.Configuritions
                 .HasMaxLength(100); 
 
             builder.Property(e => e.Age)
-                .HasDefaultValue(null); 
+                .HasDefaultValue(null);
+
+            builder
+                .HasMany(S => S.StudentCourses)
+                .WithOne(/*SC=>SC.Student*/)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
         }
 
         }

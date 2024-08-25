@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Assignment.Entities
 {
-    internal class Topic
+    internal class StudentCourse
     {
-        public int Id { get; set; }
-        public string Name { get; set; } = null!;
-
-       
+        public int StudentId { get; set; }
+        public int CourseId { get; set; }
+        public int Grade { get; set; }
     }
 }

@@ -15,17 +15,18 @@ namespace Assignment.Contexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Server=DESKTOP-5P13SE6\\SQLEXPRESS;Database=ITI;Trusted_Connection=True;Encrypt=False ");
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
 
 
-        //    modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-        //}
-        public DbSet<Student> Students { get; set; }
-        public DbSet<Course> Courses { get; set; }
-        public DbSet<Instructor> Instructors { get; set; }
-        public DbSet<Department> Departments { get; set; }
-        public DbSet<Topic> Topics { get; set; }
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
+        //public DbSet<Student> Students { get; set; }
+        //public DbSet<Course> Courses { get; set; }
+        //public DbSet<Instructor> Instructors { get; set; }
+        //public DbSet<Department> Departments { get; set; }
+        //public DbSet<Topic> Topics { get; set; }
+
 
     }
 }
