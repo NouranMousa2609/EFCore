@@ -91,6 +91,27 @@ namespace Demo
             ///}
 
             #endregion
+        
+            using InheritanceDBContext dBContext= new InheritanceDBContext();
+
+            FullTimeEmployee fullTime =new FullTimeEmployee() { FullName="Ahmed",Salary=6_000,HiringDate=DateOnly.FromDateTime(DateTime.Now)};
+            PartTimeEmployee partTime = new PartTimeEmployee() { FullName = "Aliaa", HourRate = 300, CountOfHours = 39 };
+
+            dBContext.Persons.Add(fullTime);
+            dBContext.Persons.Add(partTime);
+
+            dbContext.SaveChanges();
+
+            var fullTimeEmployee=from F in dBContext.Persons.OfType<FullTimeEmployee>()
+                                 select F;
+             var partTimeEmployee=from P in dBContext.Persons.OfType<PartTimeEmployee>()
+                                 select P;
+
+            foreach (var f in fullTimeEmployee)
+                Console.WriteLine($"{f.Id}::{f.FullName}::{f.Salary}");
+            
+            foreach (var f in partTimeEmployee)
+                Console.WriteLine($"{f.Id}::{f.FullName}::{f.HourRate}");
         }
     }
 }
