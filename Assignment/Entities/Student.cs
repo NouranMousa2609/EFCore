@@ -11,7 +11,7 @@ namespace Assignment.Entities
         public int Id { get; set; }
         public string FName { get; set; } = null!;
         public string LName { get; set; } = null!;
-        public string? Address { get; set; } = null!;
+        public string? Address { get; set; } 
 
         public int? Age { get; set; }
 
